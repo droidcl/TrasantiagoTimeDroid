@@ -13,11 +13,13 @@ android:
     - sys-img-armeabi-v7a-android-19
 #    - sys-img-x86-android-17
 before_install:
-  - android update project -p .
+#  - android update project -p .
+#  - gem install calabash-android
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 
 script:
-  - ant debug install
+#  - ant debug install
+  - ./gradlew connectedAndroidTest
