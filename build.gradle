@@ -36,4 +36,8 @@ android {
   dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')    
   }
+
+  lintOptions {
+    abortOnError false
+  }
 }
